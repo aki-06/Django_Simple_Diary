@@ -1,0 +1,12 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+	<form action="" method="POST">
+		<!-- formの入力欄を自動的につくる -->
+		<!-- 入力欄が<p>で囲まれて出力される -->
+		{{ form.as_p }}
+	<button type="submit">送信</button>
+		<!-- POSTでのデータ送信時は入力必須 -->
+		{% csrf_token %}
+	</form>
+{% endblock %}
