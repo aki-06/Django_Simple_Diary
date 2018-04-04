@@ -1,5 +1,21 @@
 {% extends 'diary/base.html' %}
 
 {% block content %}
-<h1>日記アプリケーションです</h1>
+	<h1>日記一覧</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>タイトル</th>
+				<th>日付</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for day in day_list %}
+			<tr>
+				<th>{{ day.title }}</th>
+				<th>{{ day.date }}</th>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}
