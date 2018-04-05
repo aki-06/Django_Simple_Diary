@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DayCreateForm
 from .models import Day
 
@@ -19,6 +19,25 @@ def add(request):
 		return redirect('diary:index')
 
 	# 入力内容に誤りがある場合
+	context = {
+		'form': form
+	}
+	return render(request, 'diary/day_form.html', context)
+
+
+def update(request, pk):
+	# urlのpkを基にDayを取得
+	day = get_object_or_404(Day, pk=pk)
+
+	# フォームに取得したDayを紐付ける
+	form = DayCreateForm(request.POST or None, instance=day)
+
+	# 入力に問題がなければ
+	if request.method == 'POST' and form.is_valid():
+		form.save()
+		return redirect('diary:index')
+
+	# 入力に誤りがある場合
 	context = {
 		'form': form
 	}

@@ -14,6 +14,7 @@
 			<tr>
 				<th>{{ day.title }}</th>
 				<th>{{ day.date }}</th>
+				<td><a href="{% url 'diary:update' day.pk %}">更新</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
