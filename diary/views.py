@@ -14,6 +14,7 @@ from .models import Day
 # 汎用viewで書き換え
 class IndexView(generic.ListView):
 	model = Day
+	paginate_by = 3
 
 # 関数で定義
 # def add(request):
