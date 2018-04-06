@@ -3,15 +3,15 @@
 {% block content %}
 <table class="table">
 	<tr>
-		<th>{{ day.title.label }}</th>
+		<th>タイトル</th>
 		<td>{{ day.title }}</td>
 	</tr>
 	<tr>
-		<th>{{ day.text.label }}</th>
+		<th>本文</th>
 		<td>{{ day.text | linebreaksbr | urlize }}</td>
 	</tr>
 	<tr>
-		<th>{{ day.date.label }}</th>
+		<th>日付</th>
 		<td>{{ day.date }}</td>
 	</tr>
 </table>
