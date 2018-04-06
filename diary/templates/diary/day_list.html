@@ -14,7 +14,7 @@
 		<tbody>
 			{% for day in day_list %}
 			<tr>
-				<th>{{ day.title }}</th>
+				<th><a href="{% url 'diary:detail' day.pk %}">{{ day.title }}</a></th>
 				<th>{{ day.date }}</th>
 				<td><a href="{% url 'diary:update' day.pk %}">更新</a></td>
 				<td><a href="{% url 'diary:delete' day.pk %}">削除</a></td>
