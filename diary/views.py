@@ -17,6 +17,9 @@ class IndexView(generic.ListView):
 	model = Day
 	paginate_by = 3
 
+	def get_queryset(self):
+		return super().get_queryset().order_by('-date')
+
 # 関数で定義
 # def add(request):
 # 	# 送信内容を基にフォームを作る。POSTじゃなければ空のフォーム
