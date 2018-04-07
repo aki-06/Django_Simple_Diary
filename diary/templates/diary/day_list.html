@@ -16,8 +16,12 @@
 			<tr>
 				<th><a href="{% url 'diary:detail' day.pk %}">{{ day.title }}</a></th>
 				<th>{{ day.date }}</th>
-				<td><a href="{% url 'diary:update' day.pk %}">更新</a></td>
-				<td><a href="{% url 'diary:delete' day.pk %}">削除</a></td>
+				{% if user.is_superuser %}
+				<td><a href="{% url 'diary:update' day.pk %}" target="_blank">更新</a></td>
+				{% endif %}
+				{% if user.is_superuser %}
+				<td><a href="{% url 'diary:delete' day.pk %}" target="_blank">削除</a></td>
+				{% endif %}
 			</tr>
 			{% endfor %}
 		</tbody>
